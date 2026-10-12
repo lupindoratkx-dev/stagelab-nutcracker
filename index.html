@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>StageLab｜胡桃夹子：镜框背后</title>
+  <link rel="stylesheet" href="src/style.css">
+</head>
+<body class="pre" data-ink="light">
+  <canvas id="gl" aria-label="剧场沙盘，可拖动旋转 Theatre sandbox, drag to rotate"></canvas>
+  <div id="space"></div>
+
+  <header id="mark"><strong><i aria-hidden="true"></i>StageLab <small>学习 · LEARN</small></strong><span id="credit"></span></header>
+  <section id="case-card" aria-live="polite" aria-label="当前构造知识卡"></section>
+  <div id="narr" aria-live="polite"></div>
+
+  <div id="archive-label">剧场构造 <span>THEATRE ANATOMY</span></div>
+  <nav id="squares" aria-label="剧场构造知识卡目录"></nav>
+  <aside id="final-map" aria-label="剧场地图总结"></aside>
+  <aside id="tool" aria-hidden="true" aria-live="polite"></aside>
+  <div id="ring" aria-hidden="true"></div>
+
+  <div id="chrome">
+    <ol id="rail" aria-label="段落 Scenes"></ol>
+    <div id="transport">
+      <button type="button" data-act="prev" title="上一段 Previous scene（←）" aria-label="上一段 Previous scene">
+        <svg viewBox="0 0 16 16"><path d="M4 3v10M13 3 6 8l7 5z"/></svg></button>
+      <button type="button" data-act="pause" title="暂停 / 继续 Pause / resume（空格 Space）" aria-label="暂停或继续 Pause or resume">
+        <svg class="i-pause" viewBox="0 0 16 16"><path d="M5 3v10M11 3v10"/></svg>
+        <svg class="i-play" viewBox="0 0 16 16"><path d="M5 3l8 5-8 5z"/></svg></button>
+      <button type="button" data-act="replay" title="重看本段 Replay scene（R）" aria-label="重看本段 Replay scene">
+        <svg viewBox="0 0 16 16"><path d="M3.2 8a4.8 4.8 0 1 0 1.6-3.6M4.8 1.6v2.9h2.9"/></svg></button>
+      <button type="button" data-act="next" title="下一段 Next scene（→）" aria-label="下一段 Next scene">
+        <svg viewBox="0 0 16 16"><path d="M12 3v10M3 3l7 5-7 5z"/></svg></button>
+      <i></i>
+      <button type="button" data-act="sound" title="声音 Sound（M）" aria-label="声音开关 Sound on or off">
+        <svg class="i-on" viewBox="0 0 16 16"><path d="M2.5 6.2h2.4L8.4 3v10L4.9 9.8H2.5zM11 5.5a3.6 3.6 0 0 1 0 5M12.8 3.6a6.2 6.2 0 0 1 0 8.8"/></svg>
+        <svg class="i-off" viewBox="0 0 16 16"><path d="M2.5 6.2h2.4L8.4 3v10L4.9 9.8H2.5zM11 6l3.4 4M14.4 6 11 10"/></svg></button>
+      <button type="button" data-act="info" title="资料与操作 Information and controls（I）" aria-label="资料与操作 Information and controls">
+        <svg viewBox="0 0 16 16"><path d="M8 7v5M8 4.2v.6"/><circle cx="8" cy="8" r="6.4"/></svg></button>
+    </div>
+  </div>
+
+  <aside id="panel" hidden role="dialog" aria-modal="true" aria-label="知识卡 Knowledge note">
+    <div id="panel-tools"><span>阅读中，剧情已暂停<small>Paused for reading</small></span>
+    <button type="button" id="panel-close" aria-label="关闭知识卡 Close note" title="关闭知识卡 Close note（Esc）">
+      <svg viewBox="0 0 16 16"><path d="M3 3l10 10M13 3 3 13"/></svg></button>
+    </div>
+    <div id="panel-body"></div>
+  </aside>
+
+  <div id="curtain" aria-hidden="true"></div>
+  <div id="fail" hidden>
+    <p>这个浏览器没有开启 WebGL2，沙盘无法显示。请改用新版 Edge 或 Chrome 打开。</p>
+    <p lang="en">This browser does not have WebGL2 enabled, so the theatre cannot be drawn. Please open the page in a current version of Edge or Chrome.</p>
+  </div>
+
+  <script src="src/engine.js"></script>
+  <script src="src/tween.js"></script>
+  <script src="productions/data.js"></script>
+  <script src="productions/music.js"></script>
+  <script src="src/world.js"></script>
+  <script src="src/figures.js"></script>
+  <script src="src/text.js"></script>
+  <script src="src/audio.js"></script>
+  <script src="src/ui.js"></script>
+  <script src="src/story.js"></script>
+  <script src="src/main.js"></script>
+</body>
+</html>
